@@ -7,12 +7,14 @@ const
 
 let userChoice, computerChoice, result;
 
-btns.forEach(btn => btn.addEventListener('click', ({ target }) => {
-    userChoice = target.id;
-    userChoiceDisplay.src = `images/${userChoice}.png`;
-    generateComputerChoice();
-    decideWinner();
-}));
+container.addEventListener('click', ({ target }) => {
+    if (target.matches('.btn')) {
+        userChoice = target.id;
+        userChoiceDisplay.src = `images/${userChoice}.png`;
+        generateComputerChoice();
+        decideWinner();
+    }
+});
 
 function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3 + 1);
